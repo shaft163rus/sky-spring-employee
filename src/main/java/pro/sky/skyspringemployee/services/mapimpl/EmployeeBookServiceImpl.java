@@ -21,20 +21,20 @@ public class EmployeeBookServiceImpl implements EmployeeBookService {
 
         Employee employee = new Employee(name, salary, department);
 
-        return employeeRepository.saveEmployee(employee).toString();
+        return String.valueOf(employeeRepository.saveEmployee(employee));
     }
 
 
     @Override
     public String removeEmployeeByName(String name) {
 
-        return employeeRepository.removeEmployeeByName(name).toString();
+        return String.valueOf(employeeRepository.removeEmployeeByName(name));
     }
 
     @Override
     public String findEmployeeByName(String name) {
 
-        return employeeRepository.findEmployeeByName(name).toString();
+        return String.valueOf(employeeRepository.findEmployeeByName(name));
     }
 
 

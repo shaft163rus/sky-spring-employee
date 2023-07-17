@@ -22,11 +22,11 @@ public class EmployeeBookRepository {
     }
 
     public Employee removeEmployeeByName(String name) {
-        if (employees.containsKey(name)) {
+        if (!employees.containsKey(name)) {
             throw new RuntimeException("Employee does not exists");
         }
 
-        return employees.get(name);
+        return employees.remove(name);
     }
 
     public Employee findEmployeeByName(String name) {
