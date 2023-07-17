@@ -21,7 +21,7 @@ public class EmployeeBookServiceImpl implements EmployeeBookService {
 
         Employee employee = new Employee(name, salary, department);
 
-        return String.valueOf(employeeRepository.saveEmployee(employee));
+        return String.valueOf(employeeRepository.addEmployee(employee));
     }
 
 

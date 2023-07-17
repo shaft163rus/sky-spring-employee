@@ -33,13 +33,13 @@ class EmployeeBookServiceImplTest {
     void shouldRunOneTimeAddEmployee() throws Exception {
 
         service.addEmployee("John", 1000, "IT");
-        verify(repositoryMock, times(1)).saveEmployee(any());
+        verify(repositoryMock, times(1)).addEmployee(any());
     }
 
     @Test
     void shouldReturnCorrectAddedEmployeeName() throws Exception {
         Employee employee = new Employee("John", 1000, "IT");
-        when(repositoryMock.saveEmployee(employee)).thenReturn(employee);
+        when(repositoryMock.addEmployee(employee)).thenReturn(employee);
 
         String result = service.addEmployee("John", 1000, "IT");
 
@@ -50,7 +50,7 @@ class EmployeeBookServiceImplTest {
     @Test
     void shouldNotAddAlreadyExistingEmployee() throws Exception {
 
-        when(repositoryMock.saveEmployee(any())).thenThrow(RuntimeException.class);
+        when(repositoryMock.addEmployee(any())).thenThrow(RuntimeException.class);
         assertThrows(RuntimeException.class, () -> service.addEmployee("John", 1000, "IT"));
 
 
